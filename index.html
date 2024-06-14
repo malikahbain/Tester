@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST FORM</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        #form-container {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto bg-white p-8 shadow-md rounded-lg">
+        <div id="password-prompt" class="mb-4">
+            <label for="password" class="block text-gray-700">Please enter the password to access the form:</label>
+            <input type="password" id="password" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+            <button onclick="checkPassword()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Submit</button>
+            <p id="error-message" class="text-red-500 mt-2 hidden">Incorrect password. Please try again.</p>
+        </div>
+
+     <div id="form-container">
+
+        <center>
+            <h1 class="text-2xl font-bold mb-6">TEST FORM</h1>
+        </center>
+        <form>
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Your Details</h2>
+                <div class="mb-4">
+                    <label for="full-name" class="block text-gray-700">Full Name of Applicant</label>
+                    <input type="text" id="full-name" name="full-name" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="other-name" class="block text-gray-700">Any other name by which you are known</label>
+                    <input type="text" id="other-name" name="other-name" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="marital-status" class="block text-gray-700">Gender:</label>
+                    <select id="marital-status" name="marital-status" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        <option value="Single">Female</option>
+                        <option value="Married">Male</option>
+                    </select>  
+                </div>
+                <div class="mb-4">
+                    <label for="address" class="block text-gray-700">Address:</label>
+                    <input type="text" id="address" name="address" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="home-phone" class="block text-gray-700">Home Telephone:</label>
+                        <input type="tel" id="home-phone" name="home-phone" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label for="work-phone" class="block text-gray-700">Work Telephone:</label>
+                        <input type="tel" id="work-phone" name="work-phone" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="dob" class="block text-gray-700">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="age" class="block text-gray-700">Age:</label>
+                        <input type="text" id="age" name="age" class="mt-1 p-2 w-full border border-gray-300 rounded-md" readonly>
+                    </div>
+                </div>  
+                <div class="mb-4">
+                    <label for="place-of-birth" class="block text-gray-700">Place of Birth:</label>
+                    <select id="place-of-birth" name="place-of-birth" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        <option value="">--Select your country--</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="nationality" class="block text-gray-700">Nationality:</label>
+                    <input type="text" id="nationality" name="nationality" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="social-security" class="block text-gray-700">Social Security Number:</label>
+                    <input type="password" id="social-security" name="social-security" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Are you a citizen or belonger of Anguilla?</label>
+                    <div class="mt-1">
+                        <input type="radio" id="citizen-yes" name="citizen" value="Yes" class="mr-2" required>
+                        <label for="citizen-yes" class="mr-4">Yes</label>
+                        <input type="radio" id="citizen-no" name="citizen" value="No" class="mr-2">
+                        <label for="citizen-no">No</label>
+                    </div>
+                    <div id="citizen-details" class="hidden mt-4">
+                        <label for="citizen-details-text" class="block text-gray-700">If no, give details below:</label>
+                        <textarea id="citizen-details-text" name="citizen-details-text" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Marital Status</h2>
+                <div class="mb-4">
+                    <label for="marital-status" class="block text-gray-700">Marital Status:</label>
+                    <select id="marital-status" name="marital-status" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        <option value="" disabled selected>--Select your marital status--</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Separated">Separated</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Common Law">Common Law</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="next-of-kin" class="block text-gray-700">Next of Kin:</label>
+                        <input type="text" id="next-of-kin" name="next-of-kin" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label for="relationship" class="block text-gray-700">Relationship:</label>
+                        <input type="text" id="relationship" name="relationship" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="next-of-kin-address" class="block text-gray-700">Address:</label>
+                    <input type="text" id="next-of-kin-address" name="next-of-kin-address" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="next-of-kin-home-phone" class="block text-gray-700">Home Telephone:</label>
+                        <input type="tel" id="next-of-kin-home-phone" name="next-of-kin-home-phone" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label for="next-of-kin-work-phone" class="block text-gray-700">Work Telephone:</label>
+                        <input type="tel" id="next-of-kin-work-phone" name="next-of-kin-work-phone" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Employment Status</h2>
+                <div class="mb-4">
+                    <label for="employment-status" class="block text-gray-700">Employment Status:</label>
+                    <select id="employment-status" name="employment-status" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        <option value="" disabled selected>--Select your employment status--</option>
+                        <option value="Employed">Employed</option>
+                        <option value="Self-employed">Self-employed</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Unable to work (e.g. illness)">Unable to work (e.g. illness)</option>
+                        <option value="Taking care of dependants">Taking care of dependants</option>
+                    </select>
+                </div>
+                
+            </div>
+            
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Your Household</h2>
+                <div class="mb-4">
+                    <label for="household-count" class="block text-gray-700">How many people are there in your household, including yourself?</label>
+                    <input type="text" id="household-count" name="household-count" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required oninput="validateHouseholdCount(this)">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Are there any other persons not living in your household who are dependent on you, or anyone else in your household, in any way?</label>
+                    <div class="mt-1">
+                        <input type="radio" id="dependent-yes" name="dependent" value="Yes" class="mr-2">
+                        <label for="dependent-yes" class="mr-4">Yes</label>
+                        <input type="radio" id="dependent-no" name="dependent" value="No" class="mr-2">
+                        <label for="dependent-no">No</label>
+                    </div>
+                    <div id="dependent-details" class="hidden">
+                        <div id="dependent-container"></div>
+                        <button type="button" onclick="addDependent()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Dependent</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Your Income and Financial Circumstances </h2>
+                <div class="mb-4">
+                    <label>Why are you applying for assistance?</label>
+                    <div class="mt-1">
+                        <input type="radio" id="reason-ill-disabled" name="reason" value="Ill or disabled" class="mr-2" required>
+                        <label for="reason-ill-disabled" class="mr-4">You are ill or disabled and unable to support yourself otherwise</label>
+                    </div>
+                    <div class="mt-1">
+                        <input type="radio" id="reason-retirement-age" name="reason" value="Retirement age" class="mr-2" required>
+                        <label for="reason-retirement-age" class="mr-4">You are above retirement age and unable to support yourself</label>
+                    </div>
+                    <div class="mt-1">
+                        <input type="radio" id="reason-dependent-people" name="reason" value="Dependent people" class="mr-2" required>
+                        <label for="reason-dependent-people" class="mr-4">Other people are dependent on you, so that you are unable to support yourself</label>
+                    </div>
+                    <div class="mt-1">
+                        <input type="radio" id="reason-other" name="reason" value="Other reason" class="mr-2" required>
+                        <label for="reason-other" class="mr-4">Another reason (please give details)</label>
+                    </div>
+                    <div id="other-reason-container" class="mt-4 hidden">
+                        <textarea id="other-reason-details" name="other-reason-details" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md" placeholder="Please provide details if you selected 'Another reason'"></textarea>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="form-section mb-6">
+                        <div class="mb-4">
+                            <label for="support-last-year" class="block text-gray-700">How have you and your household been supporting yourselves in the past year?</label>
+                            <textarea id="support-last-year" name="support-last-year" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Do you or anyone else in your household earn any income from employment or self-employment?</label>
+                            <div class="mt-1">
+                                <input type="radio" id="income-yes" name="income" value="Yes" class="mr-2" required>
+                                <label for="income-yes" class="mr-4">Yes</label>
+                                <input type="radio" id="income-no" name="income" value="No" class="mr-2" required>
+                                <label for="income-no">No</label>
+                            </div>
+                        </div>
+                        <div id="income-details-container" class="hidden">
+                            <div id="income-container"></div>
+                            <h2> If YES, please give details below:</h2>
+                            <button type="button" onclick="addIncome()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Income</button>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Do you or anyone else in your household receive any income from pensions?</label>
+                            <div class="mt-1">
+                                <input type="radio" id="pension-income-yes" name="pension-income" value="Yes" class="mr-2" required>
+                                <label for="pension-income-yes" class="mr-4">Yes</label>
+                                <input type="radio" id="pension-income-no" name="pension-income" value="No" class="mr-2" required>
+                                <label for="pension-income-no">No</label>
+                            </div>
+                        </div>
+                        <div id="pension-income-details-container" class="hidden">
+                            <div id="pension-income-container"></div>
+                            <button type="button" onclick="addPensionIncome()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Pension Income</button>
+                        </div>
+        
+                        <!-- Income from Relatives -->
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Do you or anyone else in your household receive any money from relatives or other persons on Island or overseas?</label>
+                            <div class="mt-1">
+                                <input type="radio" id="relative-income-yes" name="relative-income" value="Yes" class="mr-2" required>
+                                <label for="relative-income-yes" class="mr-4">Yes</label>
+                                <input type="radio" id="relative-income-no" name="relative-income" value="No" class="mr-2" required>
+                                <label for="relative-income-no">No</label>
+                            </div>
+                        </div>
+                        <div id="relative-income-details-container" class="hidden">
+                            <div id="relative-income-container"></div>
+                            <button type="button" onclick="addRelativeIncome()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Relative Income</button>
+                        </div>
+        
+                        <!-- Income from Other Sources -->
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Do you or anyone else in your household receive any income from any other source?</label>
+                            <div class="mt-1">
+                                <input type="radio" id="other-income-yes" name="other-income" value="Yes" class="mr-2" required>
+                                <label for="other-income-yes" class="mr-4">Yes</label>
+                                <input type="radio" id="other-income-no" name="other-income" value="No" class="mr-2" required>
+                                <label for="other-income-no">No</label>
+                            </div>
+                        </div>
+                        <div id="other-income-details-container" class="hidden">
+                            <div id="other-income-container"></div>
+                            <button type="button" onclick="addOtherIncome()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Other Income</button>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Do you or anyone else in your household have any savings?</label>
+                            <div class="mt-1">
+                                <input type="radio" id="savings-yes" name="savings" value="Yes" class="mr-2" required>
+                                <label for="savings-yes" class="mr-4">Yes</label>
+                                <input type="radio" id="savings-no" name="savings" value="No" class="mr-2" required>
+                                <label for="savings-no">No</label>
+                            </div>
+                        </div>
+                        <div id="savings-details-container" class="hidden">
+                            <div class="mt-4">
+                                <label class="block text-gray-700">Please tick below to indicate the amount of savings your household has altogether:</label>
+                                <div class="mt-1">
+                                    <input type="radio" id="savings-less-2000" name="savings-amount" value="Less than $2000 EC" class="mr-2">
+                                    <label for="savings-less-2000" class="mr-4">Less than $2000 EC</label>
+                                </div>
+                                <div class="mt-1">
+                                    <input type="radio" id="savings-2000-5000" name="savings-amount" value="Between $2000 and $5000 EC" class="mr-2">
+                                    <label for="savings-2000-5000" class="mr-4">Between $2000 and $5000 EC</label>
+                                </div>
+                                <div class="mt-1">
+                                    <input type="radio" id="savings-more-5000" name="savings-amount" value="More than $5000 EC" class="mr-2">
+                                    <label for="savings-more-5000" class="mr-4">More than $5000 EC</label>
+                                </div>
+                            </div>
+                            <div id="savings-container" class="mt-4">
+                                <h3 class="text-lg font-semibold mb-4">Savings Details</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label for="savings-${savingsCount}-location" class="block text-gray-700">Where are these savings held?</label>
+                                        <input type="text" id="savings-${savingsCount}-location" name="savings-${savingsCount}-location" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                                    </div>
+                                    <div>
+                                        <label for="savings-${savingsCount}-amount" class="block text-gray-700">Amount (EC $):</label>
+                                        <input type="text" id="savings-${savingsCount}-amount" name="savings-${savingsCount}-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" onclick="addSavings()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Savings</button>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Property and Land</h2>
+            </div>
+
+                            <!-- Property Income -->
+            <div class="mb-4">
+                <label class="block text-gray-700">Do you or anyone else in your household have property?</label>
+                <div class="mt-1">
+                    <input type="radio" id="property-yes" name="property" value="Yes" class="mr-2" required>
+                    <label for="property-yes" class="mr-4">Yes</label>
+                    <input type="radio" id="property-no" name="property" value="No" class="mr-2" required>
+                    <label for="property-no">No</label>
+                </div>
+            </div>
+            <div id="property-details-container" class="hidden">
+                <div id="property-container"></div>
+                <button type="button" onclick="addProperty()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Property</button>
+            </div>
+
+            <!-- Land Ownership -->
+            <div class="mb-4">
+                <label class="block text-gray-700">Do you own land or property jointly with others?</label>
+                <div class="mt-1">
+                    <input type="radio" id="joint-property-yes" name="joint-property" value="Yes" class="mr-2" required>
+                    <label for="joint-property-yes" class="mr-4">Yes</label>
+                    <input type="radio" id="joint-property-no" name="joint-property" value="No" class="mr-2" required>
+                    <label for="joint-property-no">No</label>
+                </div>
+            </div>
+            <div id="joint-property-details-container" class="hidden">
+                <div id="joint-property-container"></div>
+                <button type="button" onclick="addJointProperty()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Joint Property</button>
+            </div>
+
+            <!-- Other Assets -->
+            <!-- Other Assets -->
+            <div class="mb-4">
+                <label class="block text-gray-700">Do you or anyone else in your household have any other assets?</label>
+                <div class="mt-1">
+                    <input type="radio" id="other-assets-yes" name="other-assets" value="Yes" class="mr-2" required>
+                    <label for="other-assets-yes" class="mr-4">Yes</label>
+                    <input type="radio" id="other-assets-no" name="other-assets" value="No" class="mr-2" required>
+                    <label for="other-assets-no">No</label>
+                </div>
+            </div>
+            <div id="other-assets-details-container" class="hidden">
+                <div id="other-assets-container"></div>
+                <button type="button" onclick="addOtherAssets()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Add Other Assets</button>
+            </div>
+
+            <!-- Housing Status -->
+            <div class="mb-4">
+                <label for="housing-status" class="block text-gray-700">What is the status of the house you are living in now?</label>
+                <select id="housing-status" name="housing-status" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    <option value="" disabled selected>--Select your housing status--</option>
+                    <option value="Rented from private Landlord">Rented from private Landlord</option>
+                    <option value="Owned subject to a mortgage">Owned subject to a mortgage</option>
+                    <option value="Owned outright by the household">Owned outright by the household</option>
+                    <option value="Family property not owned by household">Family property not owned by household</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="housing-cost" class="block text-gray-700">How much does your rent or mortgage cost you each month?</label>
+                <input type="text" id="housing-cost" name="housing-cost" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Illness and Disability</h2>
+                <!-- Special Expenses -->
+                <div class="mb-4">
+                    <label class="block text-gray-700">Does your household have any special expenses arising out of the long-term illness or disability of a member of the household, including yourself?</label>
+                    <div class="mt-1">
+                        <input type="radio" id="special-expenses-yes" name="special-expenses" value="Yes" class="mr-2" required>
+                        <label for="special-expenses-yes" class="mr-4">Yes</label>
+                        <input type="radio" id="special-expenses-no" name="special-expenses" value="No" class="mr-2" required>
+                        <label for="special-expenses-no">No</label>
+                    </div>
+                </div>
+                <div id="special-expenses-details-container" class="hidden">
+                    <div class="mt-4">
+                        <label for="special-expenses-details" class="block text-gray-700">If YES, please give details below and what is the nature of the special need?</label>
+                        <textarea id="special-expenses-details" name="special-expenses-details" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                    </div>
+                    <div class="mt-4">
+                        <label for="special-expenses-cost" class="block text-gray-700">How much does this cost each month?</label>
+                        <input type="text" id="special-expenses-cost" name="special-expenses-cost" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <!-- Medical Exemption -->
+                <div class="mb-4">
+                    <label class="block text-gray-700">Do you currently receive medical exemption from the Department of Social Development?</label>
+                    <div class="mt-1">
+                        <input type="radio" id="medical-exemption-yes" name="medical-exemption" value="Yes" class="mr-2" required>
+                        <label for="medical-exemption-yes" class="mr-4">Yes</label>
+                        <input type="radio" id="medical-exemption-no" name="medical-exemption" value="No" class="mr-2" required>
+                        <label for="medical-exemption-no">No</label>
+                    </div>
+                </div>
+                <div id="medical-exemption-details-container" class="hidden">
+                    <div class="mt-4">
+                        <label for="medical-exemption-nature" class="block text-gray-700">Nature of illness/disability</label>
+                        <input type="text" id="medical-exemption-nature" name="medical-exemption-nature" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                    <div class="mt-4">
+                        <label for="medical-exemption-amount" class="block text-gray-700">Amount of medical exemption received (e.g. 100%, 50%, etc.)</label>
+                        <input type="text" id="medical-exemption-amount" name="medical-exemption-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4">Other outgoings</h2>
+                <!-- Other Outgoings or Liabilities -->
+                <div class="mb-4">
+                    <label class="block text-gray-700">Do you or any member of your household have any other outgoings or liabilities that you think should be taken into account?</label>
+                    <div class="mt-1">
+                        <input type="radio" id="other-liabilities-yes" name="other-liabilities" value="Yes" class="mr-2" required>
+                        <label for="other-liabilities-yes" class="mr-4">Yes</label>
+                        <input type="radio" id="other-liabilities-no" name="other-liabilities" value="No" class="mr-2" required>
+                        <label for="other-liabilities-no">No</label>
+                    </div>
+                </div>
+                <div id="other-liabilities-details-container" class="hidden">
+                    <div class="mt-4">
+                        <label for="other-liabilities-details" class="block text-gray-700">If YES, please give details below:</label>
+                    </div>
+                    <div class="mt-4">
+                        <label for="liabilities-nature" class="block text-gray-700">What is the nature of the liability?</label>
+                        <input type="text" id="liabilities-nature" name="liabilities-nature" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+                    <div class="mt-4">
+                        <label for="liabilities-cost" class="block text-gray-700">How much does this cost each month?</label>
+                        <input type="text" id="liabilities-cost" name="liabilities-cost" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                    </div>
+            </div>
+            <div class="form-section mb-6">
+                <h2 class="text-xl font-semibold mb-4"> Other money that you may have</h2>
+                <div class="mb-4">
+                    <label for="financial-institutions" class="block text-gray-700">Please give the names of any Banks or other financial institutions who hold any other monies on your behalf that you have not previously mentioned:</label>
+                    <textarea id="financial-institutions" name="financial-institutions" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                </div>
+            </div>
+            </div>
+
+                        <!-- Register for Other Social Programs -->
+            <div class="mb-4">
+                <label for="register-social-programs" class="block text-gray-700">Do you want to register for other social programs?</label>
+                <select id="register-social-programs" name="register-social-programs" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    <option value="" disabled selected>--Select a program--</option>
+                    <option value="PUBLIC ASSISTANCE FORM (CHILDREN)">PUBLIC ASSISTANCE FORM (CHILDREN)</option>
+                    <option value="MEDICAL EXEMPTION FORM">MEDICAL EXEMPTION FORM</option>
+                </select>
+            </div>
+
+            <!-- Public Assistance Form (Children) -->
+            <div id="public-assistance-form" class="hidden mb-4">
+                <div class="form-section mb-6">
+                    <h2 class="text-xl font-semibold mb-4">Child Details</h2>
+                    <div class="mb-4">
+                        <label for="full-name" class="block text-gray-700">Full Name of Child/Children</label>
+                        <input type="text" id="full-name" name="full-name" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="marital-status" class="block text-gray-700">Gender:</label>
+                        <select id="marital-status" name="marital-status" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                            <option value="Single">Female</option>
+                            <option value="Married">Male</option>
+                        </select>  
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="dob" class="block text-gray-700">Date of Birth:</label>
+                            <input type="date" id="dob" name="dob" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        </div>
+                        <div>
+                            <label for="age" class="block text-gray-700">Age:</label>
+                            <input type="text" id="age" name="age" class="mt-1 p-2 w-full border border-gray-300 rounded-md" readonly>
+                        </div>
+                    </div>  
+                    <div class="mb-4">
+                        <label for="address" class="block text-gray-700">Address:</label>
+                        <input type="text" id="address" name="address" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="home-phone" class="block text-gray-700">Home Telephone:</label>
+                            <input type="tel" id="home-phone" name="home-phone" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                        </div>
+                        <div>
+                            <label for="work-phone" class="block text-gray-700">Work Telephone:</label>
+                            <input type="tel" id="work-phone" name="work-phone" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="place-of-birth" class="block text-gray-700">Child's Place of Birth:</label>
+                        <select id="place-of-birth" name="place-of-birth" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                            <option value="">--Select your country--</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="nationality" class="block text-gray-700">Nationality:</label>
+                        <input type="text" id="nationality" name="nationality" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="social-security" class="block text-gray-700">Social Security Number:</label>
+                        <input type="password" id="social-security" name="social-security" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Is the child a citizen or belonger of Anguilla?</label>
+                        <div class="mt-1">
+                            <input type="radio" id="citizen-yes-child" name="citizen" value="Yes" class="mr-2" required>
+                            <label for="citizen-yes" class="mr-4">Yes</label>
+                            <input type="radio" id="citizen-no-child" name="citizen" value="No" class="mr-2">
+                            <label for="citizen-no">No</label>
+                        </div>
+                        <div id="citizen-details-child" class="hidden mt-4">
+                            <label for="citizen-details-text" class="block text-gray-700">If no, give details below:</label>
+                            <textarea id="citizen-details-text" name="citizen-details-text" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section mb-6">
+                    <h2 class="text-xl font-semibold mb-4">Schooling</h2>
+                    <!-- Child's School Information -->
+                <div class="mb-4">
+                    <label for="child-school" class="block text-gray-700">Which school does the child attend?</label>
+                    <input type="text" id="child-school" name="child-school" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+
+                <!-- Child's Grade/Form -->
+                <div class="mb-4">
+                    <label for="child-grade" class="block text-gray-700">Which grade/form is he/she in?</label>
+                    <input type="text" id="child-grade" name="child-grade" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+
+                <!-- Special Educational Needs -->
+                <div class="mb-4">
+                    <label class="block text-gray-700">Does he/she have any special educational needs?</label>
+                    <div class="mt-1">
+                        <input type="radio" id="special-needs-yes" name="special-needs" value="Yes" class="mr-2" required>
+                        <label for="special-needs-yes" class="mr-4">Yes</label>
+                        <input type="radio" id="special-needs-no" name="special-needs" value="No" class="mr-2" required>
+                        <label for="special-needs-no">No</label>
+                    </div>
+                </div>
+                <div id="special-needs-details-container" class="hidden">
+                    <div class="mt-4">
+                        <label for="special-needs-details" class="block text-gray-700">If Yes, please give details below:</label>
+                        <textarea id="special-needs-details" name="special-needs-details" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                    </div>
+                </div>
+
+                </div>
+                <div class="form-section mb-6">
+                    <h2 class="text-xl font-semibold mb-4">Illness and Disability</h2>
+                    <!-- Child's Long-term Health Problems -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Does the child/children have any long-term health problems?</label>
+                        <div class="mt-1">
+                            <input type="radio" id="health-problems-yes" name="health-problems" value="Yes" class="mr-2" required>
+                            <label for="health-problems-yes" class="mr-4">Yes</label>
+                            <input type="radio" id="health-problems-no" name="health-problems" value="No" class="mr-2" required>
+                            <label for="health-problems-no">No</label>
+                        </div>
+                    </div>
+                    <div id="health-problems-details-container" class="hidden">
+                        <div class="mt-4">
+                            <label for="health-problems-details" class="block text-gray-700">If YES, please give details below:</label>
+                            <textarea id="health-problems-details" name="health-problems-details" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Child's Medical Exemption -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Does the child currently receive any medical exemption from the Department of Social Development?</label>
+                        <div class="mt-1">
+                            <input type="radio" id="child-medical-exemption-yes" name="child-medical-exemption" value="Yes" class="mr-2" required>
+                            <label for="child-medical-exemption-yes" class="mr-4">Yes</label>
+                            <input type="radio" id="child-medical-exemption-no" name="child-medical-exemption" value="No" class="mr-2" required>
+                            <label for="child-medical-exemption-no">No</label>
+                        </div>
+                    </div>
+                    <div id="child-medical-exemption-details-container" class="hidden">
+                        <div class="mt-4">
+                            <label for="child-medical-exemption-nature" class="block text-gray-700">Nature of illness/disability</label>
+                            <input type="text" id="child-medical-exemption-nature" name="child-medical-exemption-nature" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                        </div>
+                        <div class="mt-4">
+                            <label for="child-medical-exemption-amount" class="block text-gray-700">Amount of medical exemption received (e.g. 100%, 50%, etc.)</label>
+                            <input type="text" id="child-medical-exemption-amount" name="child-medical-exemption-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                        </div>
+                    </div>
+
+                    <!-- Parent/Guardian Special Expenses -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Does the child’s parent/guardian have any special expenses arising out of the long-term illness or disability?</label>
+                        <div class="mt-1">
+                            <input type="radio" id="special-expenses-parent-yes" name="special-expenses-parent" value="Yes" class="mr-2" required>
+                            <label for="special-expenses-parent-yes" class="mr-4">Yes</label>
+                            <input type="radio" id="special-expenses-parent-no" name="special-expenses-parent" value="No" class="mr-2" required>
+                            <label for="special-expenses-parent-no">No</label>
+                        </div>
+                    </div>
+                    <div id="special-expenses-parent-details-container" class="hidden">
+                        <div class="mt-4">
+                            <label for="special-expenses-parent-details" class="block text-gray-700">If YES, please give details below:</label>
+                            <textarea id="special-expenses-parent-details" name="special-expenses-parent-details" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                        </div>
+                        <div class="mt-4">
+                            <label for="special-expenses-parent-cost" class="block text-gray-700">How much does this cost each month?</label>
+                            <input type="text" id="special-expenses-parent-cost" name="special-expenses-parent-cost" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-section mb-6">
+                    <h2 class="text-xl font-semibold mb-4">Income and Financial Circumstances</h2>
+                    <!-- Child's Need for Financial Assistance -->
+                    <div class="mb-4">
+                        <label for="financial-assistance-reason" class="block text-gray-700">Why does this child need financial assistance? Please give all of the reasons below:</label>
+                        <textarea id="financial-assistance-reason" name="financial-assistance-reason" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                    </div>
+
+                    <!-- Household Support if Parent/Guardian is Unemployed -->
+                    <div id="unemployed-details-container" class="hidden">
+                        <div class="mb-4">
+                            <label for="household-support" class="block text-gray-700">How has the child’s household been supported during the past year?</label>
+                            <textarea id="household-support" name="household-support" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Exemption Form -->
+            <div id="medical-exemption-form" class="hidden mb-4">
+                <label for="medical" class="block text-gray-700">Medical</label>
+                <input type="text" id="medical" name="medical" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+            </div>
+
+        </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('dob').addEventListener('change', function() {
+            const dob = new Date(this.value);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDifference = today.getMonth() - dob.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            document.getElementById('age').value = age;
+        });
+
+
+        document.getElementById('register-social-programs').addEventListener('change', function() {
+    const publicAssistanceForm = document.getElementById('public-assistance-form');
+    const medicalExemptionForm = document.getElementById('medical-exemption-form');
+    
+    if (this.value === 'PUBLIC ASSISTANCE FORM (CHILDREN)') {
+        publicAssistanceForm.classList.remove('hidden');
+        medicalExemptionForm.classList.add('hidden');
+    } else if (this.value === 'MEDICAL EXEMPTION FORM') {
+        publicAssistanceForm.classList.add('hidden');
+        medicalExemptionForm.classList.remove('hidden');
+    } else {
+        publicAssistanceForm.classList.add('hidden');
+        medicalExemptionForm.classList.add('hidden');
+    }
+});
+
+document.getElementById('employment-status').addEventListener('change', function() {
+    const unemployedDetailsContainer = document.getElementById('unemployed-details-container');
+    if (this.value === 'Unemployed') {
+        unemployedDetailsContainer.classList.remove('hidden');
+    } else {
+        unemployedDetailsContainer.classList.add('hidden');
+        document.getElementById('household-support').value = ''; // Clear household support details
+    }
+});
+
+
+    document.querySelectorAll('input[name="income"]').forEach((elem) => {
+        elem.addEventListener("change", function(event) {
+            const incomeDetailsContainer = document.getElementById('income-details-container');
+            if (event.target.value === 'Yes') {
+                incomeDetailsContainer.classList.remove('hidden');
+            } else {
+                incomeDetailsContainer.classList.add('hidden');
+                document.getElementById('income-container').innerHTML = ''; // Clear income details
+            }
+        });
+    });
+
+    document.querySelectorAll('input[name="pension-income"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                const pensionIncomeDetailsContainer = document.getElementById('pension-income-details-container');
+                if (event.target.value === 'Yes') {
+                    pensionIncomeDetailsContainer.classList.remove('hidden');
+                } else {
+                    pensionIncomeDetailsContainer.classList.add('hidden');
+                    document.getElementById('pension-income-container').innerHTML = ''; // Clear pension income details
+                }
+            });
+        });
+
+        document.querySelectorAll('input[name="relative-income"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const relativeIncomeDetailsContainer = document.getElementById('relative-income-details-container');
+        if (event.target.value === 'Yes') {
+            relativeIncomeDetailsContainer.classList.remove('hidden');
+        } else {
+            relativeIncomeDetailsContainer.classList.add('hidden');
+            document.getElementById('relative-income-container').innerHTML = ''; // Clear relative income details
+        }
+    });
+});
+
+
+document.querySelectorAll('input[name="other-income"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const otherIncomeDetailsContainer = document.getElementById('other-income-details-container');
+        if (event.target.value === 'Yes') {
+            otherIncomeDetailsContainer.classList.remove('hidden');
+        } else {
+            otherIncomeDetailsContainer.classList.add('hidden');
+            document.getElementById('other-income-container').innerHTML = ''; // Clear other income details
+        }
+    });
+});
+
+
+document.querySelectorAll('input[name="savings"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const savingsDetailsContainer = document.getElementById('savings-details-container');
+        if (event.target.value === 'Yes') {
+            savingsDetailsContainer.classList.remove('hidden');
+        } else {
+            savingsDetailsContainer.classList.add('hidden');
+            document.getElementById('savings-container').innerHTML = ''; // Clear savings details
+        }
+    });
+});
+
+document.querySelectorAll('input[name="property"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const propertyDetailsContainer = document.getElementById('property-details-container');
+        if (event.target.value === 'Yes') {
+            propertyDetailsContainer.classList.remove('hidden');
+        } else {
+            propertyDetailsContainer.classList.add('hidden');
+            document.getElementById('property-container').innerHTML = ''; // Clear property details
+        }
+    });
+});
+
+document.querySelectorAll('input[name="joint-property"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const jointPropertyDetailsContainer = document.getElementById('joint-property-details-container');
+        if (event.target.value === 'Yes') {
+            jointPropertyDetailsContainer.classList.remove('hidden');
+        } else {
+            jointPropertyDetailsContainer.classList.add('hidden');
+            document.getElementById('joint-property-container').innerHTML = ''; // Clear joint property details
+        }
+    });
+});
+
+document.querySelectorAll('input[name="other-assets"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const otherAssetsDetailsContainer = document.getElementById('other-assets-details-container');
+        if (event.target.value === 'Yes') {
+            otherAssetsDetailsContainer.classList.remove('hidden');
+        } else {
+            otherAssetsDetailsContainer.classList.add('hidden');
+            document.getElementById('other-assets-container').innerHTML = ''; // Clear other assets details
+        }
+    });
+});
+
+document.querySelectorAll('input[name="special-expenses"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const specialExpensesDetailsContainer = document.getElementById('special-expenses-details-container');
+        if (event.target.value === 'Yes') {
+            specialExpensesDetailsContainer.classList.remove('hidden');
+        } else {
+            specialExpensesDetailsContainer.classList.add('hidden');
+            document.getElementById('special-expenses-details').value = ''; // Clear special expenses details
+            document.getElementById('special-expenses-cost').value = ''; // Clear special expenses cost
+        }
+    });
+});
+
+document.querySelectorAll('input[name="medical-exemption"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const medicalExemptionDetailsContainer = document.getElementById('medical-exemption-details-container');
+        if (event.target.value === 'Yes') {
+            medicalExemptionDetailsContainer.classList.remove('hidden');
+        } else {
+            medicalExemptionDetailsContainer.classList.add('hidden');
+            document.getElementById('medical-exemption-nature').value = ''; // Clear medical exemption nature
+            document.getElementById('medical-exemption-amount').value = ''; // Clear medical exemption amount
+        }
+    });
+});
+
+document.querySelectorAll('input[name="other-liabilities"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const otherLiabilitiesDetailsContainer = document.getElementById('other-liabilities-details-container');
+        if (event.target.value === 'Yes') {
+            otherLiabilitiesDetailsContainer.classList.remove('hidden');
+        } else {
+            otherLiabilitiesDetailsContainer.classList.add('hidden');
+            document.getElementById('other-liabilities-details').value = ''; // Clear other liabilities details
+            document.getElementById('liabilities-nature').value = ''; // Clear liabilities nature
+            document.getElementById('liabilities-cost').value = ''; // Clear liabilities cost
+        }
+    });
+});
+
+document.querySelectorAll('input[name="special-needs"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const specialNeedsDetailsContainer = document.getElementById('special-needs-details-container');
+        if (event.target.value === 'Yes') {
+            specialNeedsDetailsContainer.classList.remove('hidden');
+        } else {
+            specialNeedsDetailsContainer.classList.add('hidden');
+            document.getElementById('special-needs-details').value = ''; // Clear special needs details
+        }
+    });
+});
+
+document.querySelectorAll('input[name="health-problems"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const healthProblemsDetailsContainer = document.getElementById('health-problems-details-container');
+        if (event.target.value === 'Yes') {
+            healthProblemsDetailsContainer.classList.remove('hidden');
+        } else {
+            healthProblemsDetailsContainer.classList.add('hidden');
+            document.getElementById('health-problems-details').value = ''; // Clear health problems details
+        }
+    });
+});
+
+document.querySelectorAll('input[name="child-medical-exemption"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const childMedicalExemptionDetailsContainer = document.getElementById('child-medical-exemption-details-container');
+        if (event.target.value === 'Yes') {
+            childMedicalExemptionDetailsContainer.classList.remove('hidden');
+        } else {
+            childMedicalExemptionDetailsContainer.classList.add('hidden');
+            document.getElementById('child-medical-exemption-nature').value = ''; // Clear medical exemption nature
+            document.getElementById('child-medical-exemption-amount').value = ''; // Clear medical exemption amount
+        }
+    });
+});
+
+document.querySelectorAll('input[name="special-expenses-parent"]').forEach((elem) => {
+    elem.addEventListener("change", function(event) {
+        const specialExpensesParentDetailsContainer = document.getElementById('special-expenses-parent-details-container');
+        if (event.target.value === 'Yes') {
+            specialExpensesParentDetailsContainer.classList.remove('hidden');
+        } else {
+            specialExpensesParentDetailsContainer.classList.add('hidden');
+            document.getElementById('special-expenses-parent-details').value = ''; // Clear special expenses details
+            document.getElementById('special-expenses-parent-cost').value = ''; // Clear special expenses cost
+        }
+    });
+});
+
+
+function addOtherAssets() {
+    const otherAssetsContainer = document.getElementById('other-assets-container');
+    const otherAssetsCount = otherAssetsContainer.children.length + 1;
+    const otherAssetsDiv = document.createElement('div');
+    otherAssetsDiv.classList.add('form-section', 'mb-6');
+    otherAssetsDiv.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="other-assets-${otherAssetsCount}-details" class="block text-gray-700">Details:</label>
+                <input type="text" id="other-assets-${otherAssetsCount}-details" name="other-assets-${otherAssetsCount}-details" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="other-assets-${otherAssetsCount}-value" class="block text-gray-700">Amount/Value:</label>
+                <input type="text" id="other-assets-${otherAssetsCount}-value" name="other-assets-${otherAssetsCount}-value" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+    `;
+    otherAssetsContainer.appendChild(otherAssetsDiv);
+}
+
+        async function populateCountries() {
+            const response = await fetch('https://restcountries.com/v3.1/all');
+            const countries = await response.json();
+            const select = document.getElementById('place-of-birth');
+
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.name.common;
+                option.textContent = country.name.common;
+                select.appendChild(option);
+            });
+        }
+
+        function validateHouseholdCount(input) {
+            input.value = input.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+            if (input.value !== '' && parseInt(input.value) < 1) {
+                input.value = 1; // Set to minimum value if less than 1
+            }
+            generateHouseholdDetails(parseInt(input.value) - 1); // Generate details for people other than the user
+        }
+
+        function generateHouseholdDetails(count) {
+            const container = document.getElementById('household-details');
+            container.innerHTML = ''; // Clear previous entries
+            for (let i = 1; i <= count; i++) {
+                const personDiv = document.createElement('div');
+                personDiv.classList.add('form-section', 'mb-6');
+                personDiv.innerHTML = `
+                    <h3 class="text-lg font-semibold mb-4">Person ${i}</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="person-${i}-full-name" class="block text-gray-700">Full Name:</label>
+                            <input type="text" id="person-${i}-full-name" name="person-${i}-full-name" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        </div>
+                        <div>
+                            <label for="person-${i}-gender" class="block text-gray-700">Gender:</label>
+                            <select id="person-${i}-gender" name="person-${i}-gender" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="person-${i}-dob" class="block text-gray-700">Date of Birth:</label>
+                            <input type="date" id="person-${i}-dob" name="person-${i}-dob" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        </div>
+                        <div>
+                            <label for="person-${i}-relation" class="block text-gray-700">How is this person related to you?</label>
+                            <input type="text" id="person-${i}-relation" name="person-${i}-relation" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(personDiv);
+            }
+        }
+
+        document.getElementById('dependent-yes').addEventListener('change', function() {
+            document.getElementById('dependent-details').classList.remove('hidden');
+        });
+
+        document.getElementById('dependent-no').addEventListener('change', function() {
+            document.getElementById('dependent-details').classList.add('hidden');
+            document.getElementById('dependent-container').innerHTML = ''; // Clear dependent details
+        });
+
+        function addDependent() {
+            const dependentContainer = document.getElementById('dependent-container');
+            const dependentCount = dependentContainer.children.length + 1;
+            const dependentDiv = document.createElement('div');
+            dependentDiv.classList.add('form-section', 'mb-6');
+            dependentDiv.innerHTML = `
+                <h3 class="text-lg font-semibold mb-4">Dependent ${dependentCount}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="dependent-${dependentCount}-full-name" class="block text-gray-700">Full Name:</label>
+                        <input type="text" id="dependent-${dependentCount}-full-name" name="dependent-${dependentCount}-full-name" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="dependent-${dependentCount}-gender" class="block text-gray-700">Gender:</label>
+                        <select id="dependent-${dependentCount}-gender" name="dependent-${dependentCount}-gender" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="dependent-${dependentCount}-dob" class="block text-gray-700">Date of Birth:</label>
+                        <input type="date" id="dependent-${dependentCount}-dob" name="dependent-${dependentCount}-dob" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="dependent-${dependentCount}-address" class="block text-gray-700">Address:</label>
+                        <input type="text" id="dependent-${dependentCount}-address" name="dependent-${dependentCount}-address" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="dependent-${dependentCount}-depend-reason" class="block text-gray-700">What does he/she depend on you for?</label>
+                    <input type="text" id="dependent-${dependentCount}-depend-reason" name="dependent-${dependentCount}-depend-reason" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                </div>
+            `;
+            dependentContainer.appendChild(dependentDiv);
+        }
+
+        function addIncome() {
+            const incomeContainer = document.getElementById('income-container');
+            const incomeCount = incomeContainer.children.length + 1;
+            const incomeDiv = document.createElement('div');
+            incomeDiv.classList.add('form-section', 'mb-6');
+            incomeDiv.innerHTML = `
+                <h3 class="text-lg font-semibold mb-4">Income ${incomeCount}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="income-${incomeCount}-employer" class="block text-gray-700">Name of Employer:</label>
+                        <input type="text" id="income-${incomeCount}-employer" name="income-${incomeCount}-employer" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="income-${incomeCount}-amount" class="block text-gray-700">Amount:</label>
+                        <input type="text" id="income-${incomeCount}-amount" name="income-${incomeCount}-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="income-${incomeCount}-frequency" class="block text-gray-700">Frequency (e.g. every day, week, etc.):</label>
+                        <input type="text" id="income-${incomeCount}-frequency" name="income-${incomeCount}-frequency" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="income-${incomeCount}-date-last-payment" class="block text-gray-700">Date of last payment:</label>
+                        <input type="date" id="income-${incomeCount}-date-last-payment" name="income-${incomeCount}-date-last-payment" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+            `;
+            incomeContainer.appendChild(incomeDiv);
+        }
+
+        function addPensionIncome() {
+    const pensionIncomeContainer = document.getElementById('pension-income-container');
+    const pensionIncomeCount = pensionIncomeContainer.children.length + 1;
+    const pensionIncomeDiv = document.createElement('div');
+    pensionIncomeDiv.classList.add('form-section', 'mb-6');
+    pensionIncomeDiv.innerHTML = `
+        <h3 class="text-lg font-semibold mb-4">Pension Income ${pensionIncomeCount}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="pension-income-${pensionIncomeCount}-source" class="block text-gray-700">Where does the pension come from?</label>
+                <input type="text" id="pension-income-${pensionIncomeCount}-source" name="pension-income-${pensionIncomeCount}-source" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="pension-income-${pensionIncomeCount}-type" class="block text-gray-700">What type of pension is it?</label>
+                <input type="text" id="pension-income-${pensionIncomeCount}-type" name="pension-income-${pensionIncomeCount}-type" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="pension-income-${pensionIncomeCount}-frequency" class="block text-gray-700">How often is it paid?</label>
+                <input type="text" id="pension-income-${pensionIncomeCount}-frequency" name="pension-income-${pensionIncomeCount}-frequency" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="pension-income-${pensionIncomeCount}-amount" class="block text-gray-700">Amount:</label>
+                <input type="text" id="pension-income-${pensionIncomeCount}-amount" name="pension-income-${pensionIncomeCount}-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+    `;
+    pensionIncomeContainer.appendChild(pensionIncomeDiv);
+}
+
+function addRelativeIncome() {
+    const relativeIncomeContainer = document.getElementById('relative-income-container');
+    const relativeIncomeCount = relativeIncomeContainer.children.length + 1;
+    const relativeIncomeDiv = document.createElement('div');
+    relativeIncomeDiv.classList.add('form-section', 'mb-6');
+    relativeIncomeDiv.innerHTML = `
+        <h3 class="text-lg font-semibold mb-4">Relative Income ${relativeIncomeCount}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="relative-income-${relativeIncomeCount}-source" class="block text-gray-700">Who is the money from?</label>
+                <input type="text" id="relative-income-${relativeIncomeCount}-source" name="relative-income-${relativeIncomeCount}-source" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="relative-income-${relativeIncomeCount}-amount" class="block text-gray-700">How much is it? ($EC)</label>
+                <input type="text" id="relative-income-${relativeIncomeCount}-amount" name="relative-income-${relativeIncomeCount}-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="relative-income-${relativeIncomeCount}-frequency" class="block text-gray-700">How often is it received?</label>
+                <input type="text" id="relative-income-${relativeIncomeCount}-frequency" name="relative-income-${relativeIncomeCount}-frequency" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="relative-income-${relativeIncomeCount}-date-last-payment" class="block text-gray-700">Date of last payment:</label>
+                <input type="date" id="relative-income-${relativeIncomeCount}-date-last-payment" name="relative-income-${relativeIncomeCount}-date-last-payment" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+    `;
+    relativeIncomeContainer.appendChild(relativeIncomeDiv);
+}
+
+function addOtherIncome() {
+    const otherIncomeContainer = document.getElementById('other-income-container');
+    const otherIncomeCount = otherIncomeContainer.children.length + 1;
+    const otherIncomeDiv = document.createElement('div');
+    otherIncomeDiv.classList.add('form-section', 'mb-6');
+    otherIncomeDiv.innerHTML = `
+        <h3 class="text-lg font-semibold mb-4">Other Income ${otherIncomeCount}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="other-income-${otherIncomeCount}-details" class="block text-gray-700">Details:</label>
+                <input type="text" id="other-income-${otherIncomeCount}-details" name="other-income-${otherIncomeCount}-details" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="other-income-${otherIncomeCount}-amount" class="block text-gray-700">Amount:</label>
+                <input type="text" id="other-income-${otherIncomeCount}-amount" name="other-income-${otherIncomeCount}-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="other-income-${otherIncomeCount}-frequency" class="block text-gray-700">Frequency (e.g. every day, week, etc.):</label>
+                <input type="text" id="other-income-${otherIncomeCount}-frequency" name="other-income-${otherIncomeCount}-frequency" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="other-income-${otherIncomeCount}-date-last-payment" class="block text-gray-700">Date of last payment:</label>
+                <input type="date" id="other-income-${otherIncomeCount}-date-last-payment" name="other-income-${otherIncomeCount}-date-last-payment" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+    `;
+    otherIncomeContainer.appendChild(otherIncomeDiv);
+}
+
+function addSavings() {
+    const savingsContainer = document.getElementById('savings-container');
+    const savingsCount = savingsContainer.children.length + 1;
+    const savingsDiv = document.createElement('div');
+    savingsDiv.classList.add('form-section', 'mb-6');
+    savingsDiv.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="savings-${savingsCount}-location" class="block text-gray-700">Where are these savings held?</label>
+                <input type="text" id="savings-${savingsCount}-location" name="savings-${savingsCount}-location" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="savings-${savingsCount}-amount" class="block text-gray-700">Amount (EC $):</label>
+                <input type="text" id="savings-${savingsCount}-amount" name="savings-${savingsCount}-amount" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+    `;
+    savingsContainer.appendChild(savingsDiv);
+}
+        
+function addProperty() {
+    const propertyContainer = document.getElementById('property-container');
+    const propertyCount = propertyContainer.children.length + 1;
+    const propertyDiv = document.createElement('div');
+    propertyDiv.classList.add('form-section', 'mb-6');
+    propertyDiv.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="property-${propertyCount}-location" class="block text-gray-700">Is it land or property?</label>
+                <input type="text" id="property-${propertyCount}-land" name="property-${propertyCount}-land" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="property-${propertyCount}-location" class="block text-gray-700">Location:</label>
+                <input type="text" id="property-${propertyCount}-location" name="property-${propertyCount}-location" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="property-${propertyCount}-worth" class="block text-gray-700">How much is the land or property worth:</label>
+                <input type="text" id="property-${propertyCount}-worth" name="property-${propertyCount}-worth" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="property-${propertyCount}-rent" class="block text-gray-700">Does anyone get rent from it?</label>
+                <input type="text" id="property-${propertyCount}-rent" name="property-${propertyCount}-rent" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+    `;
+    propertyContainer.appendChild(propertyDiv);
+}
+        
+function addJointProperty() {
+    const jointPropertyContainer = document.getElementById('joint-property-container');
+    const jointPropertyCount = jointPropertyContainer.children.length + 1;
+    const jointPropertyDiv = document.createElement('div');
+    jointPropertyDiv.classList.add('form-section', 'mb-6');
+    jointPropertyDiv.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="joint-property-${jointPropertyCount}-coowner" class="block text-gray-700">Who owns the property/land with you?</label>
+                <input type="text" id="joint-property-${jointPropertyCount}-coowner" name="joint-property-${jointPropertyCount}-coowner" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label for="joint-property-${jointPropertyCount}-relationship" class="block text-gray-700">What is their relationship to you?</label>
+                <input type="text" id="joint-property-${jointPropertyCount}-relationship" name="joint-property-${jointPropertyCount}-relationship" class="mt-1 p-2 w-full border border-gray-300 rounded-md" required>
+            </div>
+        </div>
+    `;
+    jointPropertyContainer.appendChild(jointPropertyDiv);
+}
+
+        document.addEventListener('DOMContentLoaded', populateCountries);
+
+        document.getElementById('citizen-no').addEventListener('change', function() {
+            document.getElementById('citizen-details').classList.remove('hidden');
+        });
+
+        document.getElementById('citizen-yes').addEventListener('change', function() {
+            document.getElementById('citizen-details').classList.add('hidden');
+        });
+
+        document.getElementById('citizen-no-child').addEventListener('change', function() {
+            document.getElementById('citizen-details-child').classList.remove('hidden');
+        });
+
+        document.getElementById('citizen-yes-child').addEventListener('change', function() {
+            document.getElementById('citizen-details-child').classList.add('hidden');
+        });
+
+
+
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'test'; // Replace with your actual password
+            if (password === correctPassword) {
+                document.getElementById('password-prompt').style.display = 'none';
+                document.getElementById('form-container').style.display = 'block';
+            } else {
+                document.getElementById('error-message').classList.remove('hidden');
+            }
+        }
+    </script>    
+</body>
+</html>        
